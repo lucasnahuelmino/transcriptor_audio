@@ -1,0 +1,232 @@
+/* ==============================
+   PALETA AZUL ENACOM (formal)
+   ============================== */
+:root{
+  /* Primarios */
+  --enacom-blue: #003b7a;      /* Navy ENACOM */
+  --enacom-accent: #0070d1;    /* Azul acción */
+  --enacom-ink: #002a57;       /* Texto destacado */
+
+  /* Fondos */
+  --bg: #f4f7fb;
+  --card-bg: rgba(255,255,255,0.92);
+  --card-bg-soft: rgba(255,255,255,0.86);
+
+  /* Bordes / sombras */
+  --border: rgba(0,0,0,0.08);
+  --shadow: 0 12px 34px rgba(0,0,0,0.09);
+  --shadow-soft: 0 7px 22px rgba(0,0,0,0.07);
+
+  /* Radios */
+  --radius: 16px;
+  --radius-sm: 12px;
+
+  /* Texto */
+  --text: rgba(0,0,0,0.86);
+  --muted: rgba(0,0,0,0.58);
+
+  /* Focus ring (azul) */
+  --focus: rgba(0,112,209,0.18);
+  --focus-border: rgba(0,112,209,0.55);
+
+  /* UI azul suave */
+  --enacom-soft: rgba(0,112,209,0.08);
+  --enacom-border: rgba(0,59,122,0.18);
+}
+
+/* ---------- PAGE BACKGROUND ---------- */
+.stApp{
+  background:
+    radial-gradient(1200px 600px at 18% -10%, rgba(0,112,209,0.12), transparent 60%),
+    radial-gradient(900px 500px at 92% 0%, rgba(0,59,122,0.12), transparent 55%),
+    var(--bg);
+  color: var(--text);
+}
+
+/* Reduce “aire” excesivo */
+.block-container{
+  padding-top: 1.2rem !important;
+  padding-bottom: 2.2rem !important;
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+h1, h2, h3{
+  letter-spacing: -0.2px;
+}
+p, label, .stMarkdown{
+  color: var(--text);
+}
+small, .stCaption{
+  color: var(--muted) !important;
+}
+
+/* ---------- SIDEBAR ---------- */
+section[data-testid="stSidebar"]{
+  background: rgba(255,255,255,0.88);
+  border-right: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+section[data-testid="stSidebar"] .stMarkdown{
+  color: var(--text);
+}
+
+/* ---------- METRICS ---------- */
+[data-testid="stMetric"]{
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  box-shadow: var(--shadow-soft);
+}
+[data-testid="stMetricLabel"]{
+  color: var(--muted) !important;
+  font-weight: 600 !important;
+}
+[data-testid="stMetricValue"]{
+  font-weight: 800 !important;
+  color: var(--enacom-blue) !important;
+}
+
+/* ---------- CONTAINERS BORDER ---------- */
+div[data-testid="stVerticalBlockBorderWrapper"]{
+  border-radius: var(--radius) !important;
+  border: 1px solid var(--border) !important;
+  background: var(--card-bg-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---------- BUTTONS ---------- */
+.stDownloadButton button, .stButton button{
+  border-radius: 999px !important;
+  padding: 10px 14px !important;
+  font-weight: 700 !important;
+  border: 1px solid rgba(0,0,0,0.10) !important;
+  transition: transform .08s ease, box-shadow .12s ease, background .12s ease;
+}
+.stDownloadButton button:hover, .stButton button:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+}
+
+.stButton button{
+  background: linear-gradient(180deg, rgba(0,112,209,0.18), rgba(0,112,209,0.08)) !important;
+  border: 1px solid rgba(0,112,209,0.28) !important;
+  color: var(--enacom-ink) !important;
+}
+.stButton button:hover{
+  background: linear-gradient(180deg, rgba(0,112,209,0.24), rgba(0,112,209,0.12)) !important;
+  border-color: rgba(0,112,209,0.38) !important;
+}
+
+.stDownloadButton button{
+  background: linear-gradient(180deg, rgba(0,59,122,0.20), rgba(0,59,122,0.10)) !important;
+  border: 1px solid rgba(0,59,122,0.30) !important;
+  color: var(--enacom-blue) !important;
+}
+.stDownloadButton button:hover{
+  background: linear-gradient(180deg, rgba(0,59,122,0.26), rgba(0,59,122,0.12)) !important;
+  border-color: rgba(0,59,122,0.42) !important;
+}
+
+/* ---------- INPUTS ---------- */
+input, textarea{
+  border-radius: var(--radius-sm) !important;
+}
+div[data-baseweb="input"] > div,
+div[data-baseweb="textarea"]{
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid rgba(0,0,0,0.10) !important;
+  background: rgba(255,255,255,0.90) !important;
+}
+div[data-baseweb="input"] > div:focus-within,
+div[data-baseweb="textarea"]:focus-within{
+  border-color: var(--focus-border) !important;
+  box-shadow: 0 0 0 3px var(--focus) !important;
+}
+
+/* ---------- TOGGLES (y fallback a checkbox) ---------- */
+div[data-testid="stToggle"],
+div[data-testid="stCheckbox"]{
+  background: var(--enacom-soft);
+  border: 1px solid var(--enacom-border);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+div[data-testid="stToggle"] label p,
+div[data-testid="stCheckbox"] label p{
+  font-weight: 650;
+  margin: 0;
+}
+
+/* Accent del control (si el navegador lo soporta) */
+div[data-testid="stToggle"] input,
+div[data-testid="stCheckbox"] input[type="checkbox"]{
+  accent-color: var(--enacom-accent);
+}
+
+/* ---------- EXPANDERS ---------- */
+details[data-testid="stExpander"]{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.78);
+  box-shadow: var(--shadow-soft);
+}
+details[data-testid="stExpander"] summary{
+  font-weight: 800;
+  color: var(--enacom-blue);
+}
+
+/* ---------- TABS ---------- */
+button[data-baseweb="tab"]{
+  font-weight: 800 !important;
+  color: rgba(0,0,0,0.65) !important;
+}
+button[data-baseweb="tab"][aria-selected="true"]{
+  color: var(--enacom-blue) !important;
+}
+div[data-baseweb="tab-border"]{
+  background: rgba(0,59,122,0.22) !important;
+}
+
+/* ---------- DATAFRAME ---------- */
+div[data-testid="stDataFrame"]{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  background: rgba(255,255,255,0.90);
+}
+
+/* ---------- ALERTS ---------- */
+div[data-testid="stAlert"]{
+  border-radius: var(--radius);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---------- CUSTOM CARD ---------- */
+.enacom-card{
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---------- PROGRESS (azul + fino) ---------- */
+div[data-testid="stProgress"] > div > div{
+  height: 10px !important;
+  border-radius: 999px !important;
+  background: rgba(0,59,122,0.10) !important;
+}
+div[data-testid="stProgress"] > div > div > div{
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, var(--enacom-accent), var(--enacom-blue)) !important;
+}
+
+/* ---------- SMALL POLISH ---------- */
+hr{
+  border: none;
+  height: 1px;
+  background: rgba(0,0,0,0.06);
+}

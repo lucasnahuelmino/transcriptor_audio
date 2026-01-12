@@ -1,0 +1,51 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+pip-wheel-metadata/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Environments ---
+.venv/
+
+
+# --- Streamlit ---
+.streamlit/secrets.toml
+
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# --- Logs ---
+*.log
+
+# --- Audio / Media (si no querés subirlos al repo) ---
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.ogg
+
+# --- Outputs / Backups generados por la app ---
+backup/
+backups/
+transcripciones/
+output/
+outputs/
+*.xlsx
+*.docx
+*.zip
+*.pkl
+
+# --- Local config ---
+.env
